@@ -9,9 +9,9 @@
     - name: Add test pre-rule to Panorama
       paloaltonetworks.panos.panos_security_rule:
         provider:
-          ip_address: "{{ ansible_host }}"
-          username: "{{ panorama_username }}"
-          api_key: "{{ panorama_api_token }}"
+          ip_address: "10.60.0.46"
+          username: "ansible"
+          password: "paloalto#1!"
         rule_name: "Permit DMZ to WAN"
         description: "Allow Kubernetes hosts outbound access to the WAN"
         source_zone:

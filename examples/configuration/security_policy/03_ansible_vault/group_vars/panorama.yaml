@@ -1,0 +1,5 @@
+# group_vars/panorama.yaml
+# Variables related to all Panorama API connections
+panorama_credentials:
+  username: "ansible"
+  password: "paloalto#1!"
