@@ -1,0 +1,44 @@
+---
+- name: Create Security Policy
+  hosts: panorama
+  connection: local
+  gather_facts: false
+  become: false
+
+  tasks:
+    - name: Add test pre-rule to Panorama
+      paloaltonetworks.panos.panos_security_rule:
+        provider:
+          ip_address: "{{ ansible_host }}"
+          username: "{{ panorama_username }}"
+          api_key: "{{ panorama_api_token }}"
+        rule_name: "Permit DMZ to WAN"
+        description: "Allow Kubernetes hosts outbound access to the WAN"
+        source_zone:
+          - "DMZ"
+        destination_zone:
+          - "WAN"
+        source_ip:
+          - "any"
+        source_user:
+          - "any"
+        destination_ip:
+          - "any"
+        category:
+          - "any"
+        application:
+          - "any"
+        service:
+          - "application-default"
+        hip_profiles:
+          - "any"
+        tag_name:
+          - "Outbound Web"
+        action: "allow"
+        device_group: "branch"
+        commit: false
+      register: results
+
+    - name: Print results to console
+      ansible.builtin.debug:
+        msg: "{{ results }}"
