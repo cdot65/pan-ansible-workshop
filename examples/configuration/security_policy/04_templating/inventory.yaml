@@ -1,0 +1,6 @@
+all:
+  children:
+    panorama:
+      hosts:
+        panorama1:
+          ansible_host: 10.60.0.46

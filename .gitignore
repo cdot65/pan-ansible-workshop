@@ -1,1 +1,7 @@
 .virtualenv
+examples/configuration/dhcp_reservation
+examples/configuration/generate_and_load
+examples/configuration/ipsec_vpn
+examples/configuration/nautobot_integration
+examples/configuration/security_object
+examples/operational
