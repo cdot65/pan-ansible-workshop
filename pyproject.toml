@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pan-ansible-workshop"
+version = "0.0.1"
+description = "GitHub repository for Ansible workshop examples"
+authors = ["Calvin Remsburg <cremsburg.dev@gmail.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+packages = [{include = "pan_ansible_workshop"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+invoke = "^2.0.0"
+ansible = "^7.5.0"
+pan-os-python = "^1.11.0"
+xmltodict = "^0.13.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+black = "^23.3.0"
+distro = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
